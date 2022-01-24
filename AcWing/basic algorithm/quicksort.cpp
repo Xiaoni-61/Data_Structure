@@ -8,21 +8,22 @@ void quicksort(int q[], int low, int high)
 {
     if (low >= high)
         return;
-    
+
     int temp = q[low];
-    int i=low;
-    int j=high;
-    
-    
-    while(i<j){
-        while(i<j&&q[j]>=temp)j--;
-        q[i]=q[j];
-        while(i<j&&q[i]<=temp)i++;
-        q[j]=q[i];
+    int i = low;
+    int j = high;
+    while (i < j)
+    {
+        while (i < j && q[j] >= temp)
+            j--;
+        q[i] = q[j];
+        while (i < j && q[i] <= temp)
+            i++;
+        q[j] = q[i];
     }
-    q[i]=temp;
-    quicksort(q,low,i-1);
-    quicksort(q,i+1,high);
+    q[i] = temp;
+    quicksort(q, low, i - 1);
+    quicksort(q, i + 1, high);
 }
 int main()
 {
@@ -31,10 +32,9 @@ int main()
     {
         scanf("%d", &q[i]);
     }
-    //quicksort(q, 0, n - 1);
+    quicksort(q, 0, n - 1);
     for (int i = 0; i < n; i++)
     {
         printf("%d", q[i]);
     }
-    printf("哈哈哈\n");
 }
